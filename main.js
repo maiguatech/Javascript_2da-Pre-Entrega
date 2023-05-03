@@ -1,6 +1,3 @@
-//CHRISTIAN MAIGUA
-// <----REGISTRO DE USUARIOS---->
-
 alert("Si es nuevo le pedimos de favor que se registre!");
 
 class Usuarios {
@@ -22,8 +19,6 @@ function ingresarUsuario() {
   listaDeUsuarios.push(nuevoUsuario);
 }
 ingresarUsuario();
-
-//FUNCION COMPROBADORA DE USUARIO REGISTRADO
 
 function buscarUsuario(confirmarMail) {
   let chequearEmail = prompt("Ingrese su email");
@@ -48,84 +43,54 @@ if (resultadoClave == undefined) {
   alert("Bienvenido a NEWSAN Aires");
 }
 
-//<---- SE CREA UNA CLASE CON UN OBJETO Y METODOS PARA LOS DIFERENTES AIRES---->
 class Equipo {
-  constructor(numero, rodMarca, rodNumero, reel, linea, precio) {
+  constructor(numero, marca, tipo, frigorias, precio) {
     this.numero = numero;
-    this.rodMarca = rodMarca;
-    this.rodNumero = rodNumero;
-    this.reel = reel;
-    this.linea = linea;
+    this.marca = marca;
+    this.tipo = tipo;
+    this.frigorias = frigorias;
     this.precio = precio;
   }
-  //<---METODO PARA CAMBIOS DE PRECIO LOS EQUIPOS SE INSTANCIAN CON PRECIO "0" DESPUES SE COLOCA EL PRECIO--->
+
   cambioDePrecio(precio) {
     if (typeof precio == "number") {
       this.precio = precio;
     }
   }
-  //ESTE METODO ES PARA PODER MOSTRARLO POR PROMPT  CASO CONTRARIO MUESTRA [OBJET OBJET]
+
   toString() {
-    return `Equipo N° ${this.numero}\n
-    Caña marca ${this.rodMarca}\n 
-    Caña ${this.rodNumero}\n 
-    Reel marca ${this.reel}\n
-    Línea marca ${this.linea}\n
-    Precio del equipo U$ ${this.precio}`;
+    return `Equipo N°: ${this.numero}\n
+    Aire marca: ${this.marca}\n 
+    Tipo: ${this.tipo}\n 
+    Frigorias: ${this.frigorias}\n
+    Precio del equipo U$: ${this.precio}`;
   }
 }
 
-/* DESDE ACA SE CREAN LOS DISTINTOS EQUIPOS CON SUS DATOS 
-LOS PRECIOS ESTAN EN CERO SE PODRAN CARGAR DESDE EL PROGRAMA O PROBABLEMENTE DESDE UN BACKEND */
+let equipo1 = new Equipo(1, "SURREY", "Split", "1800 fg", 0);
+let equipo2 = new Equipo(2, "CARRIER", "Ventana", "3000 fg", 0);
+let equipo3 = new Equipo(3, "BGH", "Piso techo", "4500 fg", 0);
+let equipo4 = new Equipo(4, "SANYO", "Cassette", "5500 fg", 0);
 
-let equipo1 = new Equipo(1, "Sage", "#5", "Ross", "Cortland 444", 0);
-let equipo2 = new Equipo(
-  2,
-  "Orvis",
-  "#7",
-  "Orvis Cahil",
-  "Orvis Clearwater",
-  0
-);
-let equipo3 = new Equipo(
-  3,
-  "Gloomis",
-  "#4",
-  "STH MR Pop",
-  "Scientific Anglers",
-  0
-);
-let equipo4 = new Equipo(4, "Winston", "#6", "Ross", "Rio", 0);
-
-// <----DESDE ACA SE MODIFICAN LOS PRECIOS QUE ESTÁN EN DOLARES---->
-
-equipo1.cambioDePrecio(900);
-equipo2.cambioDePrecio(995);
-equipo3.cambioDePrecio(1035);
-equipo4.cambioDePrecio(890);
-
-// <---COMUNICACION CON EL USUARIO--->
+equipo1.cambioDePrecio(200);
+equipo2.cambioDePrecio(250);
+equipo3.cambioDePrecio(350);
+equipo4.cambioDePrecio(450);
 
 alert(equipo1);
 alert(equipo2);
 alert(equipo3);
 alert(equipo4);
 
-// <---SE INVITA AL USUARIO A SELECCIONAR UN EQUIPO--->
 let numeroElegido = Number(prompt("Seleccioná un N° de equipo"));
 
-// DOLAR VALOR DEL DIA.
-let usa = 375;
-
-/* ESTA FUNCION ES PARA CALCULAR EL PRECIO QUE ESTÁ EN DOLARES Y PASARLO A PESOS */
+let usa = 470;
 
 const cambioDivisa = (precio, usa) => {
   const calcular = precio * usa;
   return calcular;
 };
 const resultado = cambioDivisa("", usa);
-
-/* BLOQUE DE CODIGO CONDICIONAL */
 
 if (numeroElegido === 1) {
   alert("Excelente elección");
@@ -150,7 +115,6 @@ if (numeroElegido === 1) {
 } else {
   alert("Ese no es un dato válido");
 
-  /* SI EL USUARIO NO ELIGIO UNA OPCION VALIDA, ENTRA EN UN BUCLE HASTA QUE ELIJA */
   while (
     numeroElegido !== 1 ||
     numeroElegido !== 2 ||
@@ -194,7 +158,7 @@ if (numeroElegido === 1) {
     }
   }
 }
-/* EN CASO DE QUE EL USUARIO HUBIERA SELECCIONADO UN EQUIPO */
+
 while (
   numeroElegido === 1 ||
   numeroElegido === 2 ||
